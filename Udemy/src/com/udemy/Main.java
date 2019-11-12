@@ -1,9 +1,13 @@
 package com.udemy;
 
+import java.text.DecimalFormat;
+
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(NumberPalindrome.isPalindrome(-222));
+    FirstLastDigitSum.sumFirstAndLastDigit(50001);
+        System.out.println(FirstLastDigitSum.sumFirstAndLastDigit(50001));
+
 
     }
 
