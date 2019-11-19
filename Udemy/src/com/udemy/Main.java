@@ -4,7 +4,10 @@ package com.udemy;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(PerfectNumber.isPerfectNumber(28));
+
+    //   NumberToWords.numberToWords(0);
+        NumberToWords.numberToWords(1450);
+
 
 
     }
