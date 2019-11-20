@@ -5,9 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-    //   NumberToWords.numberToWords(0);
-        NumberToWords.numberToWords(1450);
-
+        System.out.println(FlourPacker.canPack(1,0,4));
 
 
     }
