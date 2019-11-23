@@ -4,8 +4,10 @@ package com.udemy;
 public class Main {
     public static void main(String[] args) {
 
+        DiagonalStar.printSquareStar(22);
 
-        LargestPrime.getLargestPrime(217);
+
+
 
     }
 
