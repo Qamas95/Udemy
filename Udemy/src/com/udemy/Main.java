@@ -4,8 +4,15 @@ package com.udemy;
 public class Main {
     public static void main(String[] args) {
 
-       // System.out.println(PaintJob.getBucketCount(2.75,3.25,2.5,1));
-       // System.out.println(PaintJob.getBucketCount(7.25,4.3,2.35));
+        SimpleCalculator calculator = new SimpleCalculator();
+        calculator.setFirstNumber(5.0);
+        calculator.setSecondNumber(4);
+        System.out.println("add= " + calculator.getAdditionResult());
+        System.out.println("subtract= " + calculator.getSubtractionResult());
+        calculator.setFirstNumber(5.25);
+        calculator.setSecondNumber(0);
+        System.out.println("multiply= " + calculator.getMultiplicationResult());
+        System.out.println("divide= " + calculator.getDivisionResult());
 
 
     }
