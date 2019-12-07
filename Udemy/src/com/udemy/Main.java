@@ -4,18 +4,26 @@ package com.udemy;
 public class Main {
     public static void main(String[] args) {
 
-        Person person = new Person();
-        person.setFirstName("");   // firstName is set to empty string
-        person.setLastName("");    // lastName is set to empty string
-        person.setAge(10);
-        System.out.println("fullName= " + person.getFullName());
-        System.out.println("teen= " + person.isTeen());
-        person.setFirstName("John");    // firstName is set to John
-        person.setAge(18);
-        System.out.println("fullName= " + person.getFullName());
-        System.out.println("teen= " + person.isTeen());
-        person.setLastName("Smith");    // lastName is set to Smith
-        System.out.println("fullName= " + person.getFullName());
+
+        Company test3 = new Company();
+
+        System.out.println(test3.getEmployee_name());
+
+        Company test2 = new Company("Qamas2","Kubiak2",24,4000,"@gmail.com");
+
+        test2.withdrawFromBalance(200);
+        System.out.println(test2.getEmployee_age());
+        System.out.println(test2.getEmployee_account_cash_balance());
+        Company test = new Company();
+
+        test.setEmployee_email("Qamas");
+        test.setEmployee_surname("Kubiak");
+        test.setEmployee_age(24);
+        test.setEmployee_account_cash_balance(3000);
+        test.setEmployee_email("wp@pl");
+
+        test.addToBalance(400);
+        test.withdrawFromBalance(3200);
 
     }
 
