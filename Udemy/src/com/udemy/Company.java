@@ -25,7 +25,12 @@ public class Company {
     }
 
 
-
+    public Company(String employee_name, String employee_surname, String employee_email) {
+        this(employee_name, employee_surname, 34,7000,employee_email);
+  /*      this.employee_name = employee_name;
+        this.employee_surname = employee_surname;
+        this.employee_email = employee_email;*/
+    }
 
     public void addToBalance(int addCash) {
         this.employee_account_cash_balance += addCash;
