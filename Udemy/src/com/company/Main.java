@@ -5,12 +5,23 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Animal animal = new Animal("Animal",1,1,5,5);
+        House blueHouse = new House("blue");
+        House anotherHouse = blueHouse;
 
-        Dog dog = new Dog("Boxer",12,32,2,4,1,32,"Brown");
-      //  dog.eat();
-        dog.walk();
-        //dog.run();
+        System.out.println(blueHouse.getColor());
+        System.out.println(anotherHouse.getColor());
+
+        anotherHouse.setColor("red");
+        System.out.println(blueHouse.getColor());
+        System.out.println(anotherHouse.getColor());
+
+        House greenHouse = new House("green");
+        anotherHouse = greenHouse;
+
+        System.out.println(blueHouse.getColor());
+        System.out.println(anotherHouse.getColor());
+        System.out.println(greenHouse.getColor());
+
 
     }
 
