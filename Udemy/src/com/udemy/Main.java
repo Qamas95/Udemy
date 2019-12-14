@@ -4,16 +4,13 @@ package com.udemy;
 public class Main {
     public static void main(String[] args) {
 
-        Rectangle rectangle = new Rectangle(5, 10);
-        System.out.println("rectangle.width= " + rectangle.getWidth());
-        System.out.println("rectangle.length= " + rectangle.getLength());
-        System.out.println("rectangle.area= " + rectangle.getArea());
-        Cuboid cuboid = new Cuboid(5,10,5);
-        System.out.println("cuboid.width= " + cuboid.getWidth());
-        System.out.println("cuboid.length= " + cuboid.getLength());
-        System.out.println("cuboid.area= " + cuboid.getArea());
-        System.out.println("cuboid.height= " + cuboid.getHeight());
-        System.out.println("cuboid.volume= " + cuboid.getVolume());
+        Dimensions dimensions = new Dimensions(20, 20, 5);
+        Case theCase = new Case("220B", "Dell", "240", dimensions);
+        Monitor theMonitor = new Monitor("27inch Beast", "Acer", 27, new Resolution(240, 1440));
+        Motherboard theMotherboard = new Motherboard("BJ-200", "Asus", 4, 6, "v2.44");
+
+        PC thePC = new PC(theCase,theMonitor,theMotherboard);
+        thePC.powerUp();
 
     }
 

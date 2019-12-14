@@ -2,35 +2,12 @@ package com.udemy;
 
 public class Car extends Vehicle {
 
-
-    private int wheels;
     private int doors;
-    private int gears;
-    private boolean isManual;
+    private int engineCapacity;
 
-    private int currentGear;
-
-    public Car(String name, int size, int weight, int wheels, int doors, int gears, boolean isManual) {
-        super(name, size, weight);
-        this.wheels = wheels;
+    public Car(String name, int doors, int engineCapacity) {
+        super(name);
         this.doors = doors;
-        this.gears = gears;
-        this.isManual = isManual;
-        this.currentGear = 1;
+        this.engineCapacity = engineCapacity;
     }
-
-
-
-    public void changeGear(int currentGear) {
-        this.currentGear = currentGear;
-        System.out.println("Car.setCurrentGear(): Changed to : " + this.currentGear + " gear.");
-    }
-
-
-    public void changeVelocity(int speed, int direction){
-        System.out.println("Car.changeVelocity(): Velocity " + speed + " direction " + direction);
-        move(speed,direction);
-    }
-
-
 }
