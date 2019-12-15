@@ -4,22 +4,27 @@ package com.udemy;
 public class Main {
     public static void main(String[] args) {
 
-        Wall wall1 = new Wall("East");
-        Wall wall2 = new Wall("West");
-        Wall wall3 = new Wall("South");
-        Wall wall4 = new Wall("North");
 
-        Ceiling ceiling = new Ceiling(12, 55);
+        EnhancedPlayer player = new EnhancedPlayer("Qamas",100, "Axe");
+        System.out.println("Initial health is " + player.getHitPoints());
 
-        Bed bed = new Bed("Modern", 4, 3, 2, 1);
+/*  Bad way to do this
+        Player player = new Player();
 
-        Lamp lamp = new Lamp("Classic", false, 75);
+        player.fullName = "Qamas";
+       // player.health = 100;
+        player.weapon = "Sword";
 
-        Bedroom bedroom = new Bedroom("Qamas Room", wall1, wall2, wall3, wall4, ceiling, bed, lamp);
+        int damage = 10;
+        player.loseHealth(damage);
+        System.out.println("Remaining health = " + player.healthRemaining());
 
+        damage = 20;
+        player.health = 200;
+        player.loseHealth(damage);
+        System.out.println("Remaining health = " + player.healthRemaining());
 
-        bedroom.makeBed();
-        bedroom.getLamp().turnOn();
+*/
 
     }
 
