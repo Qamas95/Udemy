@@ -1,130 +1,21 @@
 package com.company;
 
-class Car {
-    private boolean engine;
-    private String name;
-    private int cylinders;
-    private int wheels;
-
-    public Car(String name, int cylinders) {
-        this.name = name;
-        this.cylinders = cylinders;
-        this.wheels = 4;
-        this.engine = true;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getCylinders() {
-        return cylinders;
-    }
-
-    public String startEngine(){
-        return "Car -> startEngine()";
-    }
-
-    public String accelerate(){
-        return "Car -> accelerate()";
-    }
-
-    public String brake() {
-        return "Car -> brake()";
-    }
-}
-
-
-class Mitsubishi extends Car {
-    public Mitsubishi(String name, int cylinders) {
-        super(name, cylinders);
-    }
-
-    @Override
-    public String startEngine() {
-        return "Mitsubishi -> startEngine()";
-    }
-
-    @Override
-    public String accelerate() {
-        return "Mitsubishi -> accelerate()";
-    }
-
-    @Override
-    public String brake() {
-        return "Mitsubishi -> brake()";
-    }
-}
-
-class Holden extends Car {
-    public Holden(String name, int cylinders) {
-        super(name, cylinders);
-    }
-
-    @Override
-    public String startEngine() {
-        return getClass().getSimpleName() + " -> startEngine()";
-    }
-
-    @Override
-    public String accelerate() {
-        return getClass().getSimpleName() + " -> accelerate()";
-    }
-
-    @Override
-    public String brake() {
-        return getClass().getSimpleName() + " -> brake()";
-    }
-}
-
-class Ford extends Car {
-    public Ford(String name, int cylinders) {
-        super(name, cylinders);
-    }
-
-    @Override
-    public String startEngine() {
-        return "Ford -> startEngine()";
-    }
-
-    @Override
-    public String accelerate() {
-        return "Ford -> accelerate()";
-    }
-
-    @Override
-    public String brake() {
-        return "Ford -> brake()";
-    }
-}
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Car car = new Car("Base car",8);
+        Hamburger hamburger = new Hamburger("Classic",4,true,true,true,true);
 
-        System.out.println(car.startEngine());
-        System.out.println(car.accelerate());
-        System.out.println(car.brake());
+        System.out.println(hamburger.countPrice_total());
 
+        HealthlyBurger healthlyburger = new HealthlyBurger(true,true,true,true,true);
+        System.out.println(healthlyburger.countPrice_total());
 
-        Mitsubishi mitsubishi = new Mitsubishi("Outlander VRW 4WD", 6);
-        System.out.println(mitsubishi.startEngine());
-        System.out.println(mitsubishi.accelerate());
-        System.out.println(mitsubishi.brake());
+        PremiumBurger premiumBurger = new PremiumBurger(4,true,true,true,true,true,true,true);
+        System.out.println(premiumBurger.countPrice_total());
 
-
-        Ford ford = new Ford("Ford Falcon", 6);
-        System.out.println(ford.startEngine());
-        System.out.println(ford.accelerate());
-        System.out.println(ford.brake());
-
-        Holden holden = new Holden("Ford Falcon", 6);
-        System.out.println(holden.startEngine());
-        System.out.println(holden.accelerate());
-        System.out.println(holden.brake());
     }
 
 
