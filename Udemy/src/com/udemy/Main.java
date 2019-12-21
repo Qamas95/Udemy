@@ -4,12 +4,19 @@ package com.udemy;
 public class Main {
     public static void main(String[] args) {
 
-        Printer printer = new Printer(50,true);
-        System.out.println("Initial page count = " + printer.getPagesPrinted());
-        int pagesPrinted = printer.printPages(4);
-        System.out.println("Pages printed Was " + pagesPrinted + " new total print count for printed = " + printer.getPagesPrinted());
-        pagesPrinted = printer.printPages(2);
-        System.out.println("Pages printed Was " + pagesPrinted + " new total print count for printed = " + printer.getPagesPrinted());
+
+        Hamburger hamburger = new Hamburger("Bassic","Sausage",3.65,"White");
+        //double price = hamburger.itemizeHamburger();
+        hamburger.addHamburgerAddition1("Tomato",0.27);
+        hamburger.addHamburgerAddition2("Lettuce",0.75);
+        hamburger.addHamburgerAddition3("Cucumber",0.5);
+        hamburger.addHamburgerAddition4("Cheese",1.12);
+        System.out.println("Total burger price is " + hamburger.itemizeHamburger());
+
+        HealthlyBurger healthlyBurger = new HealthlyBurger("Bacon",5.67);
+        healthlyBurger.itemizeHamburger();
+        healthlyBurger.addHealthAddition1("Egg",3);
+        healthlyBurger.itemizeHamburger();
 
     }
 
