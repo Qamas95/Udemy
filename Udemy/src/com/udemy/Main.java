@@ -14,7 +14,12 @@ public class Main {
 
         HealthyBurger healthyBurger = new HealthyBurger("Bacon", 5.67);
         healthyBurger.addHamburgerAddition1("Egg", 5.43);
-        healthyBurger.itemizeHamburger();
+        healthyBurger.addHealthAddition1("Lentils",3.41);
+        System.out.println("Total Healthy Burger price is " + healthyBurger.itemizeHamburger());
+
+        DeluxeBurger db = new DeluxeBurger();
+        db.addHamburgerAddition3("Should not do this",50.33);
+
     }
 
 }
