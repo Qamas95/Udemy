@@ -10,30 +10,51 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        sortArrays(printArray(getArrays(8)));
+
+
+        int[] myIntegers = getIntegers(6);
+        int[] sorted = sortIntegers(myIntegers);
+        printArray(sorted);
+
     }
 
-    public static void sortArrays(int[] returnedArrays) {
-        Arrays.sort(returnedArrays);
-        System.out.println("Sorted array numbers: " + Arrays.toString(returnedArrays));
-    }
-
-    public static int[] printArray(int[] array) {
-        int[] myIntegers = array;
-        for (int i = 0; i < myIntegers.length; i++) {
-            System.out.println("Element " + i + ", typed value was " + myIntegers[i]);
+    public static int[] getIntegers(int capacity) {
+        int[] array = new int[capacity];
+        System.out.println("Enter " + capacity + " integer values:\r");
+        for (int i = 0; i < array.length; i++) {
+            array[i] = scanner.nextInt();
         }
-        return myIntegers;
+        return array;
     }
 
-    public static int[] getArrays(int number) {
-        System.out.println("Enter " + number + " a integer values.\r");
-        int[] enteredValues = new int[number];
 
-        for (int i = 0; i < enteredValues.length; i++) {
-            enteredValues[i] = scanner.nextInt();
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Element " + i + " contents " + array[i]);
         }
-        return enteredValues;
+    }
+
+    public static int[] sortIntegers(int[] array){
+
+    /*    int[] sortedArray = new int[array.length];
+        for(int i=0;i<array.length;i++){
+            sortedArray[i] = array[i];
+        }*/
+        int[] sortedArray = Arrays.copyOf(array,array.length); // better way to copy arrays
+        boolean flag = true;
+        int temp;
+        while (flag){
+            flag = false;
+            for(int i=0; i<sortedArray.length-1; i++){
+                if(sortedArray[i] < sortedArray[i+1]){
+                    temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[i+1];
+                    sortedArray[i+1] = temp;
+                    flag = true;
+                }
+            }
+        }
+        return sortedArray;
     }
 
 }
