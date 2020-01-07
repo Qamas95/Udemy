@@ -2,7 +2,6 @@ package com.company;
 
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -11,50 +10,39 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("Enter count:");
+        int count = scanner.nextInt();
+        scanner.nextLine();
 
-        int[] myIntegers = getIntegers(6);
-        int[] sorted = sortIntegers(myIntegers);
-        printArray(sorted);
+        int[] returnedArray = readIntegers(count);
+
+        int returnedMin = findMin(returnedArray);
+
+        System.out.println("min = " + returnedMin);
 
     }
 
-    public static int[] getIntegers(int capacity) {
-        int[] array = new int[capacity];
-        System.out.println("Enter " + capacity + " integer values:\r");
+    private static int[] readIntegers(int count) {
+        int[] array = new int[count];
         for (int i = 0; i < array.length; i++) {
-            array[i] = scanner.nextInt();
+            System.out.println("Enter a number:");
+            int number = scanner.nextInt();
+            scanner.nextLine();
+            array[i] = number;
         }
         return array;
     }
 
+    private static int findMin(int[] array){
+        int min = Integer.MAX_VALUE;
 
-    public static void printArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.println("Element " + i + " contents " + array[i]);
-        }
-    }
-
-    public static int[] sortIntegers(int[] array){
-
-    /*    int[] sortedArray = new int[array.length];
-        for(int i=0;i<array.length;i++){
-            sortedArray[i] = array[i];
-        }*/
-        int[] sortedArray = Arrays.copyOf(array,array.length); // better way to copy arrays
-        boolean flag = true;
-        int temp;
-        while (flag){
-            flag = false;
-            for(int i=0; i<sortedArray.length-1; i++){
-                if(sortedArray[i] < sortedArray[i+1]){
-                    temp = sortedArray[i];
-                    sortedArray[i] = sortedArray[i+1];
-                    sortedArray[i+1] = temp;
-                    flag = true;
-                }
+        for (int i=0; i<array.length; i++){
+            int value = array[i];
+            if(value < min) {
+                min = value;
             }
         }
-        return sortedArray;
+        return min;
     }
 
 }
