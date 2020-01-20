@@ -1,128 +1,57 @@
 package com.company;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-
     private static Scanner scanner = new Scanner(System.in);
-    private static MobilePhone mobilePhone = new MobilePhone("519 511 938");
+    private static Mechanism weeds = new Mechanism("Mazar");
+
 
     public static void main(String[] args) {
 
-
         boolean quit = false;
-        startPhone();
-        printActions();
-        while (!quit) {
-            System.out.println("\nEnter action: (6 to show available actions)");
-            int actions = scanner.nextInt();
-            scanner.nextLine();
 
-            switch (actions) {
-                case 0:
-                    System.out.println("\nShutting down..");
-                    break;
-                case 1:
-                    mobilePhone.printContacts();
-                    break;
-                case 2:
-                    addNewContact();
-                    break;
-                case 3:
-                    updateContact();
-                    break;
-                case 4:
-                    removeContact();
-                    break;
-                case 5:
-                    queryContact();
-                    break;
-                case 6:
-                    printActions();
-                    break;
-            }
+        while (!quit){
+            System.out.println("Enter action:");
+        int actions = scanner.nextInt();
+        scanner.nextLine();
+        switch (actions){
+            case 0:
+                addNewWeed();
+                break;
+            case 1:
+                weeds.printWeedTypes();
+                break;
+            case 2:
+                printOptions();
+                break;
+            case 3:
+                quit = true;
+                break;
         }
-
+        }
     }
 
-    private static void startPhone() {
-        System.out.println("Starting phone...");
+    private static void printOptions(){
+        System.out.println("0 - add new options\n" +
+                "1 - print list\n" +
+                "2 - quit");
     }
 
-
-    private static void addNewContact() {
-        System.out.println("Enter new contact name: ");
-        String name = scanner.nextLine();
-        System.out.println("Enter phone number: ");
-        String phone = scanner.nextLine();
-        Contact newContact = Contact.createContact(name, phone);
-        if (mobilePhone.addNewContact(newContact)) {
-            System.out.println("New contact added: " + name + ", phone = " + phone);
+    private static void addNewWeed(){
+        System.out.println("Enter weed name: ");
+        String weedName = scanner.nextLine();
+        System.out.println("Enter weed price per 1g: ");
+        int weedPrice = scanner.nextInt();
+        scanner.nextLine();
+        Weed newWeeedType = Weed.createWeed(weedName,weedPrice);
+        if(weeds.addNewWeedType(newWeeedType)){
+            System.out.println("New weed type added: " + weedName + " for price: " + weedPrice);
         } else {
-            System.out.println("Cannot add, " + name + " already on file");
+            System.out.println("Cannot add, " + weedName + " already on file");
         }
-
-    }
-
-    private static void updateContact(){
-        System.out.println("Enter existing contact name: ");
-        String name = scanner.nextLine();
-        Contact existingContactRecord = mobilePhone.queryContact(name);
-        if(existingContactRecord == null){
-            System.out.println("Contact not found.");
-            return;
-        }
-        System.out.println("Enter new contact name: ");
-        String newName = scanner.nextLine();
-        System.out.println("Enter new contact phone number: ");
-        String newNumber = scanner.nextLine();
-        Contact newContact = Contact.createContact(newName,newNumber);
-        if(mobilePhone.updateContact(existingContactRecord, newContact)){
-            System.out.println("Successfully update record");
-        } else {
-            System.out.println("Error updating record");
-        }
-    }
-
-
-    private static void removeContact() {
-        System.out.println("Enter existing contact name: ");
-        String name = scanner.nextLine();
-        Contact existingContactRecord = mobilePhone.queryContact(name);
-        if (existingContactRecord == null) {
-            System.out.println("Contact not found.");
-            return;
-        }
-        if(mobilePhone.removeContact(existingContactRecord)){
-            System.out.println("Successfully deleted");
-        } else {
-            System.out.println("Error deleting contact");
-        }
-    }
-
-    private static void queryContact() {
-        System.out.println("Enter existing contact name: ");
-        String name = scanner.nextLine();
-        Contact existingContactRecord = mobilePhone.queryContact(name);
-        if (existingContactRecord == null) {
-            System.out.println("Contact not found.");
-            return;
-        }
-        System.out.println("Name: " + existingContactRecord.getName() + " phone number is " + existingContactRecord.getPhoneNumber());
-    }
-
-
-    private static void printActions() {
-        System.out.println("\nAvailable actions:\npress");
-        System.out.println("0 - to shutdown\n" +
-                "1 - to print contacts\n" +
-                "2 - to add a new contact\n" +
-                "3 - to update existing an existing contact\n" +
-                "4 - to remove an existing contact\n" +
-                "5 - query if an  contact exists\n" +
-                "6 - to print a list of available actions");
-        System.out.println("Chooce ur actions");
     }
 
 }
