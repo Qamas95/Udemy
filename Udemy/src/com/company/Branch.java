@@ -13,6 +13,10 @@ public class Branch {
         this.customers = new ArrayList<Customer>();
     }
 
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+
     public String getBranchName() {
         return branchName;
     }
@@ -44,4 +48,6 @@ public class Branch {
 
         return null;
     }
+
+
 }
