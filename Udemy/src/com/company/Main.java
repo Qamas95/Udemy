@@ -2,56 +2,79 @@ package com.company;
 
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class Main {
-    private static Scanner scanner = new Scanner(System.in);
-    private static Mechanism weeds = new Mechanism("Mazar");
+class IntClass{
+    private int myValue;
+
+    public IntClass(int myValue) {
+        this.myValue = myValue;
+    }
+
+    public int getMyValue() {
+        return myValue;
+    }
+
+    public void setMyValue(int myValue) {
+        this.myValue = myValue;
+    }
+
+}
+
+
+
+public class Main<dbl> {
 
 
     public static void main(String[] args) {
 
-        boolean quit = false;
+        String[] strArray = new String[10];
+        int[] intArray = new int[10];
 
-        while (!quit){
-            System.out.println("Enter action:");
-        int actions = scanner.nextInt();
-        scanner.nextLine();
-        switch (actions){
-            case 0:
-                addNewWeed();
-                break;
-            case 1:
-                weeds.printWeedTypes();
-                break;
-            case 2:
-                printOptions();
-                break;
-            case 3:
-                quit = true;
-                break;
-        }
-        }
-    }
+        ArrayList<String> stringArrayList = new ArrayList<String>();
+        stringArrayList.add("Qamas");
 
-    private static void printOptions(){
-        System.out.println("0 - add new options\n" +
-                "1 - print list\n" +
-                "2 - quit");
-    }
+        ArrayList<IntClass> intClassArrayList = new ArrayList<IntClass>();
+        intClassArrayList.add(new IntClass(54));
 
-    private static void addNewWeed(){
-        System.out.println("Enter weed name: ");
-        String weedName = scanner.nextLine();
-        System.out.println("Enter weed price per 1g: ");
-        int weedPrice = scanner.nextInt();
-        scanner.nextLine();
-        Weed newWeeedType = Weed.createWeed(weedName,weedPrice);
-        if(weeds.addNewWeedType(newWeeedType)){
-            System.out.println("New weed type added: " + weedName + " for price: " + weedPrice);
-        } else {
-            System.out.println("Cannot add, " + weedName + " already on file");
+        Integer integer = new Integer(54);
+        Double doubleValue = new Double(54.55);
+
+      /*  ArrayList<Integer> intArrayList = new ArrayList<Integer>();
+        for(int i=0; i<intArrayList.size(); i++){
+            intArrayList.add(Integer.valueOf(i));
         }
+
+        for(int i=0; i<=10; i++){
+            System.out.println(i + " ---> " + intArrayList.get(i).intValue());
+
+        }
+*/
+        ArrayList<Integer> intArrayList = new ArrayList<Integer>();
+        for(int i=0; i<=10; i++) {
+            intArrayList.add(Integer.valueOf(i));
+        }
+
+        for(int i=0; i<=10; i++) {
+            System.out.println(i + " --> " + intArrayList.get(i).intValue());
+        }
+
+
+
+        Integer myIntValue = Integer.valueOf(56);
+        int myInt = myIntValue.intValue(); // myInt.intValue();
+
+        ArrayList<Double> myDoubleValues = new ArrayList<Double>();
+
+        for(double dbl=0.0; dbl<= 10.0; dbl += 0.5){
+        myDoubleValues.add(dbl);
+        }
+
+        for(int i = 0; i<myDoubleValues.size(); i++){
+            double value = myDoubleValues.get(i);
+            System.out.println(i + "  --->  " + value);
+        }
+
+
     }
 
 }
