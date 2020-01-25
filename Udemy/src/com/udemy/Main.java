@@ -1,26 +1,41 @@
 package com.udemy;
 
 
+import java.util.ArrayList;
+
 public class Main {
+
+
     public static void main(String[] args) {
 
 
-        Hamburger hamburger = new Hamburger("Basic", "Sausage", 3.56, "White");
-        double price = hamburger.itemizeHamburger();
-        hamburger.addHamburgerAddition1("Tomato", 0.27);
-        hamburger.addHamburgerAddition2("Lettuce", 0.75);
-        hamburger.addHamburgerAddition3("Cheese", 1.13);
-        System.out.println("Total Burger price is " + hamburger.itemizeHamburger());
+        Customer customer = new Customer("Qamas",84.54);
+        Customer anotherCustomer;
+        anotherCustomer = customer;
 
-        HealthyBurger healthyBurger = new HealthyBurger("Bacon", 5.67);
-        healthyBurger.addHamburgerAddition1("Egg", 5.43);
-        healthyBurger.addHealthAddition1("Lentils",3.41);
-        System.out.println("Total Healthy Burger price is " + healthyBurger.itemizeHamburger());
+        anotherCustomer.setBalance(12.18);
+        System.out.println("Balance for customer" + customer.getName() + " is " +
+                customer.getBalance());
 
-        DeluxeBurger db = new DeluxeBurger();
-        db.addHamburgerAddition3("Should not do this",50.33);
+        ArrayList<Integer> intList = new ArrayList<>();
+
+        intList.add(1);
+        intList.add(3);
+        intList.add(4);
+
+        for(int i = 0; i<intList.size(); i++){
+            System.out.println(i + ": " + intList.get(i));
+        }
+
+        intList.add(1,2);
+
+        for(int i = 0; i<intList.size(); i++){
+            System.out.println(i + ": " + intList.get(i));
+        }
+
 
     }
+
 
 }
 
