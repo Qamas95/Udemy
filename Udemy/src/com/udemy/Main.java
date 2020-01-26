@@ -1,37 +1,16 @@
 package com.udemy;
 
 
-import java.util.ArrayList;
-
 public class Main {
 
 
     public static void main(String[] args) {
 
+        Album album = new Album("Reedukacja","Peja"); //xd
 
-        Customer customer = new Customer("Qamas",84.54);
-        Customer anotherCustomer;
-        anotherCustomer = customer;
+        album.addSong("997",3.50);
+        album.printSongs();
 
-        anotherCustomer.setBalance(12.18);
-        System.out.println("Balance for customer" + customer.getName() + " is " +
-                customer.getBalance());
-
-        ArrayList<Integer> intList = new ArrayList<>();
-
-        intList.add(1);
-        intList.add(3);
-        intList.add(4);
-
-        for(int i = 0; i<intList.size(); i++){
-            System.out.println(i + ": " + intList.get(i));
-        }
-
-        intList.add(1,2);
-
-        for(int i = 0; i<intList.size(); i++){
-            System.out.println(i + ": " + intList.get(i));
-        }
 
 
     }
