@@ -18,9 +18,15 @@ public class Main {
         System.out.println(qamas);
         qamas.setWeapon("War Axe");
         saveObject(qamas);
-        loadObject(qamas);
+        //loadObject(qamas);
         System.out.println(qamas);
 
+
+        System.out.println("=============");
+        ISaveable warewolf = new Monster("Warewolf",20,40);
+        System.out.println("Strength = " + ((Monster) warewolf).getStrength());
+        System.out.println(warewolf);
+        saveObject(warewolf);
 
     }
 
