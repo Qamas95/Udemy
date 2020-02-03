@@ -1,22 +1,20 @@
-package com.timbuchalka;
+package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by dev on 30/09/15.
- */
 public class Player implements ISaveable {
+
     private String name;
-    private int hitPoints;
+    private int healthPoints;
     private int strength;
     private String weapon;
 
-    public Player(String name, int hitPoints, int strength) {
+    public Player(String name, int healthPoints, int strength) {
         this.name = name;
-        this.hitPoints = hitPoints;
+        this.healthPoints = healthPoints;
         this.strength = strength;
-        this.weapon = "Sword";
+        this.weapon = "Axe";
     }
 
     public String getName() {
@@ -27,12 +25,12 @@ public class Player implements ISaveable {
         this.name = name;
     }
 
-    public int getHitPoints() {
-        return hitPoints;
+    public int getHealthPoints() {
+        return healthPoints;
     }
 
-    public void setHitPoints(int hitPoints) {
-        this.hitPoints = hitPoints;
+    public void setHealthPoints(int healthPoints) {
+        this.healthPoints = healthPoints;
     }
 
     public int getStrength() {
@@ -51,11 +49,12 @@ public class Player implements ISaveable {
         this.weapon = weapon;
     }
 
+
     @Override
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", hitPoints=" + hitPoints +
+                ", healthPoints=" + healthPoints +
                 ", strength=" + strength +
                 ", weapon='" + weapon + '\'' +
                 '}';
@@ -63,37 +62,24 @@ public class Player implements ISaveable {
 
     @Override
     public List<String> write() {
-        List<String> values = new ArrayList<String>();
+        List<String> values = new ArrayList<>();
         values.add(0, this.name);
-        values.add(1, "" + this.hitPoints);
-        values.add(2, "" + this.strength);
-        values.add(3, this.weapon);
-
+        values.add(1 ,"" + this.healthPoints);
+        values.add(2,"" + this.strength);
+        values.add(3,"" + this.weapon);
         return values;
     }
 
     @Override
     public void read(List<String> savedValues) {
-        if(savedValues != null && savedValues.size() >0) {
+        if(savedValues != null && savedValues.size() > 0) {
             this.name = savedValues.get(0);
-            this.hitPoints = Integer.parseInt(savedValues.get(1));
+
+           // this.healthPoints = savedValues.get(1); --> tak nie ruszy trzeba parseInt
+
+            this.healthPoints = Integer.parseInt(savedValues.get(1));
             this.strength = Integer.parseInt(savedValues.get(2));
             this.weapon = savedValues.get(3);
         }
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
