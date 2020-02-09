@@ -7,23 +7,11 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Dog dog = new Dog("Boxer");
-        dog.breathe();
-        dog.eat();
-
-        Parrot parrot = new Parrot("Australian ringneck");
-        parrot.breathe();
-        parrot.eat();
-        parrot.fly();
-
-
-        Penguin penguin = new Penguin("Emperor");
-          penguin.fly();
-
-
-          
-
-
+        Calculator calculator = new Calculator(3, 4, "Calculator");
+        calculator.addition();
+        calculator.division();
+        calculator.multiplication();
+        calculator.substraction();
 
     }
 
