@@ -1,34 +1,31 @@
 package com.udemy;
 
 
-
 public class Main {
-
 
 
     public static void main(String[] args) {
 
 
-        ITelephone qamasPhone;
-        qamasPhone = new DeskPhone(51234);
-        qamasPhone.powerOn();
-        qamasPhone.callPhone(51234);
-        qamasPhone.answer();
+        Dog dog = new Dog("Boxer");
+        dog.breathe();
+        dog.eat();
+
+        Parrot parrot = new Parrot("Australian ringneck");
+        parrot.breathe();
+        parrot.eat();
+        parrot.fly();
 
 
+        Penguin penguin = new Penguin("Emperor");
+          penguin.fly();
 
 
-        qamasPhone = new MobilePhone(432235);
-        qamasPhone.powerOn();
-        qamasPhone.callPhone(432235);
-        qamasPhone.answer();
-
+          
 
 
 
     }
-
-
 
 
 }
