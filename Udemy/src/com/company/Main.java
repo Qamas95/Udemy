@@ -6,18 +6,38 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Dog dog = new Dog("Yorkie");
-        dog.breathe();
-        dog.eat();
 
+        MyLinkedList list = new MyLinkedList(null);
+        list.traverse(list.getRoot());
+        // Create a string data array to avoid typing loads of addItem instructions:
+        String stringData = "5 7 3 9 8 2 1 0 4 6";
 
-        Parrot parrot = new Parrot("Australian Parrot");
-        parrot.breathe();
-        parrot.eat();
-        parrot.fly();
+        String[] data = stringData.split(" ");
+        for (String s : data) {
+            list.addItem(new Node(s));
+        }
 
-        Penguin penguin = new Penguin("Emperror");
-        penguin.fly();
+        list.traverse(list.getRoot());
+        list.removeItem(new Node("3"));
+        list.traverse(list.getRoot());
 
+        list.removeItem(new Node("5"));
+        list.traverse(list.getRoot());
+
+        list.removeItem(new Node("0"));
+        list.removeItem(new Node("4"));
+        list.removeItem(new Node("2"));
+        list.traverse(list.getRoot());
+
+        list.removeItem(new Node("9"));
+        list.traverse(list.getRoot());
+        list.removeItem(new Node("8"));
+        list.traverse(list.getRoot());
+        list.removeItem(new Node("6"));
+        list.traverse(list.getRoot());
+        list.removeItem(list.getRoot());
+        list.traverse(list.getRoot());
+        list.removeItem(list.getRoot());
+        list.traverse(list.getRoot());
     }
 }
