@@ -9,53 +9,53 @@ public class Main {
 
     public static void main(String[] args) {
 
-        FotballPlayer Qamas = new FotballPlayer("Qamas");
-        BaseballPlayer Pat = new BaseballPlayer("Pat");
-        SoccerPlayer Beckham = new SoccerPlayer("Beckham");
 
-        Team<FotballPlayer> adelaideCrows = new Team<>("Adelaide Crows");
-        adelaideCrows.addPlayer(Qamas);
-        //adelaideCrows.addPlayer(Pat);
-        //adelaideCrows.addPlayer(Beckham);
-
-        System.out.println(adelaideCrows.numPlayers());
-
-
-        Team<BaseballPlayer> baseballTeam = new Team<>("Chicago Cubs");
-        baseballTeam.addPlayer(Pat);
-
-        Team<SoccerPlayer> brokenTeam = new Team<>("This won't work");
-        brokenTeam.addPlayer(Beckham);
-
-
+        League<Team<FotballPlayer>> footballLeague = new League<>("AFL");
+        Team<FotballPlayer> adelaideCrows = new Team<>("Adelaide");
         Team<FotballPlayer> melbourne = new Team<>("Melbourne");
-        FotballPlayer banks = new FotballPlayer("Gordon");
-        melbourne.addPlayer(banks);
-
         Team<FotballPlayer> hawthorn = new Team<>("Hawthorn");
         Team<FotballPlayer> fremantle = new Team<>("Fremantle");
+        Team<BaseballPlayer> baseballTeam = new Team<>("Chicago Cubs");
 
         hawthorn.matchResult(fremantle,1,0);
         hawthorn.matchResult(adelaideCrows,3,8);
-
         adelaideCrows.matchResult(fremantle,2,1);
-        //adelaideCrows.matchResult(baseballTeam,1,1);
 
-        System.out.println("Rankings");
-        System.out.println(adelaideCrows.getName() + " : " + adelaideCrows.ranking());
-        System.out.println(melbourne.getName() + " : " + melbourne.ranking());
-        System.out.println(fremantle.getName() + " : " + fremantle.ranking());
-        System.out.println(hawthorn.getName() + " : " + hawthorn.ranking());
+        footballLeague.add(adelaideCrows);
+        footballLeague.add(melbourne);
+        footballLeague.add(hawthorn);
+        footballLeague.add(fremantle);
 
-        System.out.println(adelaideCrows.compareTo(melbourne));
-        System.out.println(adelaideCrows.compareTo(hawthorn));
+        //footballLeague.add(baseballTeam);
 
-        System.out.println(hawthorn.compareTo(adelaideCrows));
-        System.out.println(melbourne.compareTo(fremantle));
+        footballLeague.showLeagueTable();
+
+        BaseballPlayer pat = new BaseballPlayer("Pat");
+        SoccerPlayer beckham = new SoccerPlayer("Beckham");
 
 
-        ArrayList<Team> teams;
-       // Collections.sort(teams);
+        Team rawTeam = new Team("Raw Team");
+        rawTeam.addPlayer(beckham);
+        rawTeam.addPlayer(pat);
+
+
+        footballLeague.add(rawTeam);
+
+        League<Team> rawLeague = new League<>("Raw");
+        rawLeague.add(adelaideCrows);
+        rawLeague.add(rawTeam);
+        rawLeague.add(baseballTeam);
+
+        League reallyRaw = new League("Really raw");
+        reallyRaw.add(adelaideCrows);
+        reallyRaw.add(rawTeam);
+        reallyRaw.add(baseballTeam);
+
+
+
+
+
+
 
     }
 
